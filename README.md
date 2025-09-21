@@ -14,23 +14,62 @@ Acest proiect permite **detectarea automată a obiectelor cerești în mișcare*
 
 ---
 
-## Structura generală
+## General Structure
 
-- `main.py` – punctul de intrare în proiect
-- `src/detector.py` – funcția principală de detecție a mișcării
-- `src/save.py` – salvarea coordonatelor candidaților
-- `src/visualize.py` – afișare grafică a traiectoriilor ? TODO
-- `src/multiple_images.py` - permite lucrul cu mai multe fișiere
-- `src/analyze.py` – compararea candidaților între epoci + corelarea pozițiilor pe 
-                      baza mișcării ungiulare
+1. `main.py` – punctul de intrare în proiect
+  
+2. `src/detector.py` – Image Differencing and Detection
+  This module contains the core function detect_moving_objects, which:
+  -loads two images and aligns the second to the first using reproject:
+  -substracts global backgound offset by removing image medians;
+  -computates the absolute pixel-wise difference and thresholds based on Nσ (adaptive)
+  -applies morphological dilation and a size filter to retain valid candidates
+  -outputs a binary mask of significant changes to retain valid candidates
+  -outputs a binary mask of significant changes and saves RA/Dec coordinates via WCS
+  
+3. `src/save.py` – WCS Coordinate Conversion
+ The function save_candidate_coordinates:
+  -labels connected pixel regions in the binary mask;
+  -computes centroids of these regions;
+  -converts image-space coordinates to celestial (RA/Dec) via the FITS WCS header;
+  -writes results to candidates_*.txt files for downstream analysis;
+  
+4. `src/visualize.py` – Trajectory Visualization
+  This module displays:
+  -source starting and ending positions from cross-epoch matches;
+  -connecting lines indicating direction and approximate motion vectors;
+  -overlays on grayscale FITS images with adaptive contrast scaling;
+  
+5. `src/multiple_images.py` - Batch Processing
+  Given a list of images, this module:
+  -applies the detection module on all consecutive image pairs;
+  -saves PNG visualisations of detected differences for each pair;
+  -automates candidate deneration across entire time series;
+  
+6. `src/analyze.py` – Multi-Epoch Motion Analysis
+  This module performs cross-matching of coordinate files:
+  -computes angular separations between spurces from two epochs
+  -flags pairs within a user-defined threshold (default: 5 arcseconds)
+  -gathers all valid matches and prepares for trajectory plotting or filtering
+  
+7. `src/test_injector.py`- Synthetic Source Injection
+  For validation purpose, this module:
+  -adds a synthetic bright patch to a FITS image at a defined location and brightness;
+  -creates test cases to ensure the detection pipeline responds appropriately
+
+8. `src/utils.py` - FITS Display Utility
+  The display_fits_auto_contrast function:
+  -loads and visualizes FITS data with percentile-based contrast scaling;
+  -optionally shows histograms of pixel intensity distributions;
+  
 - `results/` – fișierele de output (.txt cu coordonate și imagini salvate)
 
 ---
 
 ## Input
 
-- Două sau mai multe fișiere `.fits` provenite din aceeași zonă cerească, dar din epoci diferite (ex: diferite `scan_id`)
-- Banda W2 (4.6μm), sursa NEOWISE-R
+- Two or more files `.fits` from the same celestial area, but from different epochs (ex: different `scan_id`)
+- band W2 (4.6μm), source NEOWISE-R
 
 ---
 
@@ -48,9 +87,10 @@ Acest proiect permite **detectarea automată a obiectelor cerești în mișcare*
 
 ---
 
-## Exemplu de rezultat
+## Example of result
 
 ```text
-✦ Mișcări între epoca1.txt și epoca2.txt:
+✦ Movements between epoca1.txt and epoca2.txt:
   (133.4360, -6.6533) → (133.4355, -6.6534) | Δ = 1.78"
   (133.2912, -6.6759) → (133.2910, -6.6767) | Δ = 3.05"
+
