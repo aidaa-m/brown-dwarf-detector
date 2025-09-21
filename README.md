@@ -22,12 +22,12 @@ We present a complete pipeline for detecting moving astronomical objects in cali
   
 2. `src/detector.py` – Image Differencing and Detection
   This module contains the core function detect_moving_objects, which:
-  -loads two images and aligns the second to the first using reproject:
-  -substracts global backgound offset by removing image medians;
-  -computates the absolute pixel-wise difference and thresholds based on Nσ (adaptive)
-  -applies morphological dilation and a size filter to retain valid candidates
-  -outputs a binary mask of significant changes to retain valid candidates
-  -outputs a binary mask of significant changes and saves RA/Dec coordinates via WCS
+  - loads two images and aligns the second to the first using reproject:
+  - substracts global backgound offset by removing image medians;
+  - computates the absolute pixel-wise difference and thresholds based on Nσ (adaptive)
+  - applies morphological dilation and a size filter to retain valid candidates
+  - outputs a binary mask of significant changes to retain valid candidates
+  - outputs a binary mask of significant changes and saves RA/Dec coordinates via WCS
   
 3. `src/save.py` – WCS Coordinate Conversion
  The function save_candidate_coordinates:
@@ -95,6 +95,7 @@ We present a complete pipeline for detecting moving astronomical objects in cali
 ✦ Movements between epoca1.txt and epoca2.txt:
   (133.4360, -6.6533) → (133.4355, -6.6534) | Δ = 1.78"
   (133.2912, -6.6759) → (133.2910, -6.6767) | Δ = 3.05"
+
 
 
 
