@@ -44,9 +44,9 @@ We present a complete pipeline for detecting moving astronomical objects in cali
   
 5. `src/multiple_images.py` - Batch Processing
   Given a list of images, this module:
-  -applies the detection module on all consecutive image pairs;
-  -saves PNG visualisations of detected differences for each pair;
-  -automates candidate deneration across entire time series;
+  - applies the detection module on all consecutive image pairs;
+  - saves PNG visualisations of detected differences for each pair;
+  - automates candidate deneration across entire time series;
   
 6. `src/analyze.py` – Multi-Epoch Motion Analysis
   This module performs cross-matching of coordinate files:
@@ -95,6 +95,7 @@ We present a complete pipeline for detecting moving astronomical objects in cali
 ✦ Movements between epoca1.txt and epoca2.txt:
   (133.4360, -6.6533) → (133.4355, -6.6534) | Δ = 1.78"
   (133.2912, -6.6759) → (133.2910, -6.6767) | Δ = 3.05"
+
 
 
 
