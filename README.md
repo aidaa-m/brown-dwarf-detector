@@ -18,7 +18,7 @@ We present a complete pipeline for detecting moving astronomical objects in cali
 
 ## General Structure
 
-1. `main.py` – punctul de intrare în proiect
+1. `main.py` – Project Entry Point
    This module initializes and runs the dtection pipeline:
    - loads all required paths to FITS image files
    - calls detect_on_multiple_images() to compare consecutive image pairs
@@ -99,6 +99,7 @@ We present a complete pipeline for detecting moving astronomical objects in cali
 ✦ Movements between epoca1.txt and epoca2.txt:
   (133.4360, -6.6533) → (133.4355, -6.6534) | Δ = 1.78"
   (133.2912, -6.6759) → (133.2910, -6.6767) | Δ = 3.05"
+
 
 
 
