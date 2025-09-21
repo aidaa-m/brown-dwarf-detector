@@ -1,6 +1,8 @@
 # Detection of Moving Objects with WISE/NEOWISE images
 
-Acest proiect permite **detectarea automată a obiectelor cerești în mișcare** (precum piticii bruni) folosind imagini FITS provenite de la satelitul **WISE / NEOWISE-R**, achiziționate în epoci diferite.
+We present a complete pipeline for detecting moving astronomical objects in calibrated FITS images taken across multiple epochs. The system compares successive observations, filters significant pixel differences, converts regions of interest into WCS coordinates, and matches them across time to identify consistent motion. Applications include the detection of brown dwarfs, distant stellar objects, and solar system bodies with measurable proper motion.
+
+**Keywords**: FITS, astronomical imaging, moving object detection, coordinate matching, multi-epoch analysis, WCS, RA/Dec
 
 ---
 
@@ -93,6 +95,7 @@ Acest proiect permite **detectarea automată a obiectelor cerești în mișcare*
 ✦ Movements between epoca1.txt and epoca2.txt:
   (133.4360, -6.6533) → (133.4355, -6.6534) | Δ = 1.78"
   (133.2912, -6.6759) → (133.2910, -6.6767) | Δ = 3.05"
+
 
 
 
