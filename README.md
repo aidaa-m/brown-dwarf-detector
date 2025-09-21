@@ -87,7 +87,7 @@ We present a complete pipeline for detecting moving astronomical objects in cali
 4. **Noise filtering** using an adaptive threshold (e.g. `threshold = 3σ`)
 5. **Labeling pixel groups** with significant differences
 6. **Conversion to RA/Dec coordinates** using WCS
-7. **Saving coordinates** into a .txt file `.txt` (e.g. `candidates_<frame>.txt`)
+7. **Saving coordinates** into a file `.txt` (e.g. `candidates_<frame>.txt`)
 8. **Matching positions between epochs** using the function `match_candidates`
 9. **Trajectory visualization** between epochs
 
@@ -99,6 +99,7 @@ We present a complete pipeline for detecting moving astronomical objects in cali
 ✦ Movements between epoca1.txt and epoca2.txt:
   (133.4360, -6.6533) → (133.4355, -6.6534) | Δ = 1.78"
   (133.2912, -6.6759) → (133.2910, -6.6767) | Δ = 3.05"
+
 
 
 
