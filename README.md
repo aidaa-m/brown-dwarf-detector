@@ -7,10 +7,10 @@ Acest proiect permite **detectarea automată a obiectelor cerești în mișcare*
 ## Purpose of the project
 
 - Identification of objects with high proper motion
--Comparison of images of the same sky region from different epochs
--Saving the coordinates (RA, Dec) of the detected candidates
--Automatic matching of positions between epochs
--Visualization of potential trajectories
+- Comparison of images of the same sky region from different epochs
+- Saving the coordinates (RA, Dec) of the detected candidates
+- Automatic matching of positions between epochs
+- Visualization of potential trajectories
 
 ---
 
@@ -93,5 +93,6 @@ Acest proiect permite **detectarea automată a obiectelor cerești în mișcare*
 ✦ Movements between epoca1.txt and epoca2.txt:
   (133.4360, -6.6533) → (133.4355, -6.6534) | Δ = 1.78"
   (133.2912, -6.6759) → (133.2910, -6.6767) | Δ = 3.05"
+
 
 
