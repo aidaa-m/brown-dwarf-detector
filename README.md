@@ -31,16 +31,16 @@ We present a complete pipeline for detecting moving astronomical objects in cali
   
 3. `src/save.py` – WCS Coordinate Conversion
  The function save_candidate_coordinates:
-  -labels connected pixel regions in the binary mask;
-  -computes centroids of these regions;
-  -converts image-space coordinates to celestial (RA/Dec) via the FITS WCS header;
-  -writes results to candidates_*.txt files for downstream analysis;
+  - labels connected pixel regions in the binary mask;
+  - computes centroids of these regions;
+  - converts image-space coordinates to celestial (RA/Dec) via the FITS WCS header;
+  - writes results to candidates_*.txt files for downstream analysis;
   
 4. `src/visualize.py` – Trajectory Visualization
   This module displays:
-  -source starting and ending positions from cross-epoch matches;
-  -connecting lines indicating direction and approximate motion vectors;
-  -overlays on grayscale FITS images with adaptive contrast scaling;
+  - source starting and ending positions from cross-epoch matches;
+  - connecting lines indicating direction and approximate motion vectors;
+  - overlays on grayscale FITS images with adaptive contrast scaling;
   
 5. `src/multiple_images.py` - Batch Processing
   Given a list of images, this module:
@@ -50,19 +50,19 @@ We present a complete pipeline for detecting moving astronomical objects in cali
   
 6. `src/analyze.py` – Multi-Epoch Motion Analysis
   This module performs cross-matching of coordinate files:
-  -computes angular separations between spurces from two epochs
-  -flags pairs within a user-defined threshold (default: 5 arcseconds)
-  -gathers all valid matches and prepares for trajectory plotting or filtering
+  - computes angular separations between spurces from two epochs
+  - flags pairs within a user-defined threshold (default: 5 arcseconds)
+  - gathers all valid matches and prepares for trajectory plotting or filtering
   
 7. `src/test_injector.py`- Synthetic Source Injection
   For validation purpose, this module:
-  -adds a synthetic bright patch to a FITS image at a defined location and brightness;
-  -creates test cases to ensure the detection pipeline responds appropriately
+  - adds a synthetic bright patch to a FITS image at a defined location and brightness;
+  - creates test cases to ensure the detection pipeline responds appropriately
 
 8. `src/utils.py` - FITS Display Utility
   The display_fits_auto_contrast function:
-  -loads and visualizes FITS data with percentile-based contrast scaling;
-  -optionally shows histograms of pixel intensity distributions;
+  - loads and visualizes FITS data with percentile-based contrast scaling;
+  - optionally shows histograms of pixel intensity distributions;
   
 - `results/` – fișierele de output (.txt cu coordonate și imagini salvate)
 
@@ -95,6 +95,7 @@ We present a complete pipeline for detecting moving astronomical objects in cali
 ✦ Movements between epoca1.txt and epoca2.txt:
   (133.4360, -6.6533) → (133.4355, -6.6534) | Δ = 1.78"
   (133.2912, -6.6759) → (133.2910, -6.6767) | Δ = 3.05"
+
 
 
 
