@@ -1,16 +1,16 @@
-# Detectare de Obiecte în Mișcare cu Imagini WISE/NEOWISE
+# Detection of Moving Objects with WISE/NEOWISE images
 
 Acest proiect permite **detectarea automată a obiectelor cerești în mișcare** (precum piticii bruni) folosind imagini FITS provenite de la satelitul **WISE / NEOWISE-R**, achiziționate în epoci diferite.
 
 ---
 
-## Scopul proiectului
+## Purpose of the project
 
-- Identificarea obiectelor cu mișcare proprie mare
-- Compararea imaginii aceleiași zone din cer în epoci diferite
-- Salvarea coordonatelor (RA, Dec) ale candidaților
-- Corelarea automată a pozițiilor între epoci
-- Vizualizarea traiectoriilor potențiale
+- Identification of objects with high proper motion
+-Comparison of images of the same sky region from different epochs
+-Saving the coordinates (RA, Dec) of the detected candidates
+-Automatic matching of positions between epochs
+-Visualization of potential trajectories
 
 ---
 
@@ -68,22 +68,22 @@ Acest proiect permite **detectarea automată a obiectelor cerești în mișcare*
 
 ## Input
 
-- Two or more files `.fits` from the same celestial area, but from different epochs (ex: different `scan_id`)
+- Two or more files `.fits` from the same celestial area, but from different epochs (e.g. different `scan_id`)
 - band W2 (4.6μm), source NEOWISE-R
 
 ---
 
-## Pașii principali
+## Main steps
 
-1. **Alinierea imaginilor** cu `reproject_interp` pe coordonate comune
-2. **Scăderea medianei** pentru eliminarea offset-ului global
-3. **Calculul diferenței absolute** între imagini
-4. **Filtrarea zgomotului** prin prag adaptiv (ex: `threshold = 3σ`)
-5. **Etichetarea grupurilor de pixeli** cu diferență semnificativă
-6. **Conversia în coordonate RA/Dec** folosind WCS
-7. **Salvarea coordonatelor** într-un fișier `.txt` (ex: `candidates_<frame>.txt`)
-8. **Compararea pozițiilor între epoci** cu funcția `match_candidates`
-9. **Vizualizarea traiectoriilor** între epoci
+1. **Image alignment** using `reproject_interp` on common coordinates
+2. **Median subtraction** to eliminate global offset
+3. **Absolute difference computation** between images
+4. **Noise filtering** using an adaptive threshold (e.g. `threshold = 3σ`)
+5. **Labeling pixel groups** with significant differences
+6. **Conversion to RA/Dec coordinates** using WCS
+7. **Saving coordinates** into a .txt file `.txt` (e.g. `candidates_<frame>.txt`)
+8. **Matching positions between epochs** using the function `match_candidates`
+9. **Trajectory visualization** between epochs
 
 ---
 
@@ -93,4 +93,5 @@ Acest proiect permite **detectarea automată a obiectelor cerești în mișcare*
 ✦ Movements between epoca1.txt and epoca2.txt:
   (133.4360, -6.6533) → (133.4355, -6.6534) | Δ = 1.78"
   (133.2912, -6.6759) → (133.2910, -6.6767) | Δ = 3.05"
+
 
